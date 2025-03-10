@@ -1,9 +1,10 @@
 <script lang="ts">
-
+  import Editor from '../components/editor.svelte'
 </script>
 
-<main class="container">
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-</main>
+<div class="mt-2 w-full">
+  <div class="p-2">
+    <Editor />
+    <div>asd</div>
+  </div>
+</div>

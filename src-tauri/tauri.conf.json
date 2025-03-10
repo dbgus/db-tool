@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "db-tool",
+  "productName": "Db Buddy",
   "version": "0.1.0",
-  "identifier": "com.db-tool.app",
+  "identifier": "com.Db Buddy.app",
   "build": {
     "beforeDevCommand": "pnpm dev",
     "devUrl": "http://localhost:1420",
@@ -12,9 +12,11 @@
   "app": {
     "windows": [
       {
-        "title": "db-tool",
+        "title": "Db Buddy",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "minWidth": 800,
+        "minHeight": 600
       }
     ],
     "security": {

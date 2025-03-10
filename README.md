@@ -1,5 +1,7 @@
 # database tool
 
+simple, light-weight database gui tool
+
 ### spec
 
 1. tauri
@@ -8,16 +10,28 @@
 4. pnpm
 5. tailwind
 
-### feat
+### Function
 
-- [ ] db connect
+#### data
+
 - [ ] show table list
 - [ ] show data
+
+#### query
+
 - [ ] execute query
-- [ ] save query
-- [ ] multi connect
+- [ ] save sql file
+
+#### connection
+
+- [ ] db connect
+- [ ] db connection managing
+
+#### etc
+
 - [ ] export erd
 - [ ] sql formatting
+- [ ] make dashboard
 
 ### support database driver
 
