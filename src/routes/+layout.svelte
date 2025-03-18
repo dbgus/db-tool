@@ -10,10 +10,16 @@
   import { initConfigSetup } from '../util/init-config-setup'
   import Header from '../components/header.svelte'
   import { onMount } from 'svelte'
-  import { isLock, setupShortcutListener, showConnectionModal } from '../lib/shortcuts'
+  import {
+    isLock,
+    setupShortcutListener,
+    showConnectionModal,
+    showNewConnectionModal,
+  } from '../lib/shortcuts'
   import Lock from '../page/lock.svelte'
   import LeftSideDrawer from '../components/leftSideDrawer.svelte'
   import Connection from '../components/connection.svelte'
+  import NewConnection from '../components/newConnection.svelte'
 
   // get config
   const getInitConfig = async () => {
@@ -31,6 +37,7 @@
     setupShortcutListener()
   })
   let { children } = $props()
+  console.log($showNewConnectionModal)
 </script>
 
 <main class="">
@@ -48,9 +55,16 @@
         {@render children()}
       </div>
       {#if $showConnectionModal}
-        <div class="fixed inset-0 bg-black opacity-30 flex items-center justify-center w-full">
-          <Connection />
-        </div>
+        <div
+          class="fixed inset-0 bg-black opacity-30 flex items-center justify-center w-full"
+        ></div>
+        <Connection />
+      {/if}
+      {#if $showNewConnectionModal}
+        <div
+          class="fixed inset-0 bg-black opacity-30 flex items-center justify-center w-full"
+        ></div>
+        <NewConnection />
       {/if}
     {/if}
   {/await}

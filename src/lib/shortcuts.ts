@@ -6,12 +6,13 @@ export const isLock = writable(false)
 export const queryFiled = writable<{ index: number; text: string; hasFocus: boolean }[]>([])
 
 export const showConnectionModal = writable(false)
-
+export const showNewConnectionModal = writable(false)
 /**
  * Listen to the shortcut event and update the store accordingly
  */
 export function setupShortcutListener() {
   window.addEventListener('keydown', (event) => {
+    console.log(event)
     if (event.metaKey && event.key === 'l') {
       // lock app
       // if the app is not locked, lock it app
@@ -45,10 +46,10 @@ export function setupShortcutListener() {
         return prev.map((x, i) => ({ ...x, hasFocus: i === newFocus }))
       })
       return
+    } else if (event.metaKey && event.shiftKey && event.key === 'n') {
+      if (R.not(get(showNewConnectionModal))) showNewConnectionModal.update(() => true)
     } else if (event.metaKey && event.key === 'n') {
-      if (R.not(get(showConnectionModal))) {
-        showConnectionModal.update(() => true)
-      }
+      if (R.not(get(showConnectionModal))) showConnectionModal.update(() => true)
     }
   })
 }
