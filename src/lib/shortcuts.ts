@@ -12,7 +12,6 @@ export const showNewConnectionModal = writable(false)
  */
 export function setupShortcutListener() {
   window.addEventListener('keydown', (event) => {
-    console.log(event)
     if (event.metaKey && event.key === 'l') {
       // lock app
       // if the app is not locked, lock it app

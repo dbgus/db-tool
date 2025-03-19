@@ -37,7 +37,6 @@
     setupShortcutListener()
   })
   let { children } = $props()
-  console.log($showNewConnectionModal)
 </script>
 
 <main class="">

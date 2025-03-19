@@ -1,7 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import type { editor as TEditor } from 'monaco-editor'
+
   import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
+  // import { mysqlDriver } from '$lib/db-driver/mysql'
 
   let subscriptions: any[] = []
   let content
@@ -12,6 +14,14 @@
   let decorationsCollection: TEditor.IEditorDecorationsCollection | null = null // 새로운 방식
 
   onMount(() => {
+    // console.log(mysqlDriver)
+    // const test = async () => {
+    //   let a = await mysqlDriver.query('select * from users')
+    //   console.log(a)
+    // }
+
+    // test()
+
     const initializeEditor = async () => {
       self.MonacoEnvironment = {
         getWorker: (_moduleId: string, label: string) => new editorWorker(),
