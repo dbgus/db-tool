@@ -1,21 +1,33 @@
 <script lang="ts">
+  import axios from 'axios'
+  import { onMount } from 'svelte'
   import Editor from '../components/editor.svelte'
+
   let data = []
   let fields: never[] = []
   async function test() {
-    const response = await fetch('/api/mysql', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+    const response = await axios.post(
+      '/api/mysql',
+      {
+        query: 'select * from indexer_block;',
+        host: 'localhost',
+        user: 'root',
+        password: '1234',
+        port: '3306',
+        database: 'test',
       },
-      body: JSON.stringify({ query: 'select *from indexer_block;' }),
-    })
-    const { result, fields: res } = await response.json()
+      {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      },
+    )
+    const { result, fields: res } = response.data
+
     data = result
     fields = res
   }
-  console.log(fields)
 </script>
 
 <div class="mt-2 w-full">
